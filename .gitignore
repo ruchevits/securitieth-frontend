@@ -82,4 +82,4 @@ fabric.properties
 
 ### Embark ###
 
-client/embark.js
+client/lib/embark.js
