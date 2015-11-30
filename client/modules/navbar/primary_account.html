@@ -10,7 +10,7 @@
             <div>
                 <p class="text-left"><strong>{{userName name}}</strong></p>
                 <p class="text-left small">{{shortAddress address}}</p>
-                <p style="margin-top:10px;"><a href="#" class="btn btn-primary btn-block btn-sm">Edit account</a></p>
+                <p style="margin-top:10px;"><a href="{{pathFor route='account' address=address}}" class="btn btn-primary btn-block btn-sm">Edit account</a></p>
             </div>
         </div>
     </li>

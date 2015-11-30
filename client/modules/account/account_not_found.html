@@ -1,0 +1,15 @@
+<template name="accountNotFound">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Account not available</h3>
+            <p>
+                Please make sure that the account you are trying to use <b>exists</b> and <b>is unlocked</b>.
+            </p>
+            <p>
+                <pre>geth --unlock "{{address}}"</pre>
+            </p>
+        </div>
+    </div>
+
+</template>

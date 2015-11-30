@@ -1,0 +1,33 @@
+<template name="account">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Account</h3>
+            <div class="input-group" style="width:100%;margin-bottom:40px;">
+                <span class="input-group-addon" style="padding:4px;width:32px;">
+                    <img src="{{identicon address}}" class="img-responsive">
+                </span>
+                <input type="text" class="form-control" id="account-address-full" name="account-address-full" value="{{address}}" disabled>
+            </div>
+            <h3>Profile</h3>
+            <div class="alert alert-info" role="alert">
+                You can optionally set profile information or remain anonymous.
+            </div>
+            <form class="form-horizontal" id="edit-account-info">
+                <div class="form-group">
+                    <label for="account-name" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="account-name" name="account-name" value="{{name}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h3>Securities</h3>
+        </div>
+    </div>
+</template>
