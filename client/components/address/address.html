@@ -1,0 +1,18 @@
+<template name="address">
+    <div style="display: inline;">
+        <div class="identicon-container" style="float: left;width: 20px;margin-right: 5px;">
+            <img src="{{identicon hash}}" class="img-responsive">
+        </div>
+        <div style="display: block;float: left;">
+            {{#if name}}
+                {{name}} <small style="color:#aaa;">{{shortAddress hash}}</small>
+            {{else}}
+                {{#if short}}
+                    {{shortAddress hash}}
+                {{else}}
+                    {{hash}}
+                {{/if}}
+            {{/if}}
+        </div>
+    </div>
+</template>
