@@ -1,0 +1,104 @@
+$navbar-account-menu-width: 300px;
+
+#navbar-account {
+
+  & > .dropdown-toggle {
+    height: $navbar-height;
+    padding: 10px 15px;
+
+    & > .identicon-container {
+      display: inline-block;
+      float: left;
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+    }
+
+    & > .account-name {
+      display: inline-block;
+      float: left;
+      height: 30px;
+      line-height: 15px;
+    }
+  }
+}
+
+#navbar-account-menu {
+  padding: 0;
+
+  & > li {
+    padding: 20px;
+
+    // All accounts
+    & > div {
+      width: $navbar-account-menu-width;
+      overflow: hidden;
+
+      & > div:nth-child(1) {
+        float: left;
+
+        & > .identicon-container {
+          background: #eee;
+          border: 1px solid #ccc;
+          border-radius: 9999px;
+        }
+      }
+
+      & > div:nth-child(2) {
+        float: left;
+        padding-left: 20px;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    // Primary account
+    &.account-primary {
+      & > div {
+
+        & > div:nth-child(1) {
+          width: 30%;
+
+          & > .identicon-container {
+            padding: 14px;
+          }
+        }
+
+        & > div:nth-child(2) {
+          width: 70%;
+        }
+      }
+    }
+
+    // Secondary account
+    &.account-secondary {
+      background: #eee;
+      border-top: 1px solid #ccc;
+      cursor: pointer;
+
+      &:hover {
+        background: darken(#eee, 5%);
+      }
+
+      & > div {
+
+        & > div:nth-child(1) {
+          width: 15%;
+
+          & > .identicon-container {
+            padding: 7px;
+          }
+        }
+
+        & > div:nth-child(2) {
+          width: 85%;
+        }
+      }
+    }
+  }
+}
