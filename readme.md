@@ -3,6 +3,7 @@
 ## Running
 
 - `git clone https://github.com/ruchevits/securitieth-frontend.git && cd securitieth-frontend`
+- `embark blockchain`
 - `embark deploy`
 - `meteor`
 
