@@ -11,7 +11,7 @@
             </div>
             <div style="overflow: hidden;">
                 <span style="display: block;float: left;margin-right: 10px;">Issued by:</span>
-                <a href="{{pathFor route='account' address=address}}">
+                <a href="{{pathFor route='account' address=issuer.address}}">
                     {{>address hash=issuer.address name=issuer.name short=true}}
                 </a>
             </div>
