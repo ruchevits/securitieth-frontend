@@ -5,7 +5,13 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
 insecure
 ethereum:web3
 bbmoz:gulp
+fourseven:scss
+reywood:bootstrap3-sass
+iron:router
+hillmark:meteor-identicon
+erasaur:meteor-lodash
+jag:pince
+raix:handlebar-helpers

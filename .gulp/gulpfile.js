@@ -15,6 +15,7 @@ var srcs = {
         '!./../**/node_modules',
         '!./../public/*.js',
         '!./../public/**/*.js',
+        '!./../client/embark.js',
         './../*.js',
         './../**/*.js'
     ],
@@ -28,6 +29,7 @@ var srcs = {
         './../**/*.css'
     ],
     contracts: [
+        './../config/contracts.yml',
         './../contracts/**/*.sol',
         './../contracts/**/*.se'
     ]
