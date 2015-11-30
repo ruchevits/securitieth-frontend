@@ -11,7 +11,9 @@
         {{#each selectedRegistry}}
             <tr>
                 <td>
-                    {{>address hash=address short=true}}
+                    <a href="{{pathFor route='security' address=address}}">
+                        {{>address hash=address short=true}}
+                    </a>
                 </td>
                 <td>
                     {{>address hash=issuer.address name=issuer.name short=true}}
