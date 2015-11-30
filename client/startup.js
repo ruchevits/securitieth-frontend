@@ -5,12 +5,34 @@ Meteor.startup(function(){
         throw new Meteor.Error('web3-error', 'Can\'t connect to the Web3 provider');
     }
 
+    // Watch blockchain for new blocks
+    web3.eth.filter('latest').watch(function(err, blockHash){
+        if (!err){
+            Session.set('blocks:latest:number', blockHash);
+        }
+    });
+
 });
 
 Tracker.autorun(function () {
+    Session.set('blocks:latest:number', web3.eth.blockNumber);
+    Session.set('blocks:latest', getLatestBlock());
     Session.setDefault('accounts:selected:address', web3.eth.defaultAccount);
     Session.set('accounts', getAccounts());
 });
+
+/**
+ * @returns {Number} Number of the latest mined block, or null
+ */
+function getLatestBlock(){
+
+    //console.log('Retrieving latest block');
+
+    var blockNumber = Session.get('blocks:latest:number');
+
+    return blockNumber ? web3.eth.getBlock(blockNumber) : null;
+
+}
 
 /**
  * Returns an array of currently unlocked accounts along with their local profiles (if exists).

@@ -1,0 +1,59 @@
+<template name="blockInfo">
+
+    <h3>Latest block</h3>
+
+    <div style="overflow: hidden;">
+
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <td>Block number</td>
+                <td>{{block.number}}</td>
+            </tr>
+            <tr>
+                <td>Hash</td>
+                <td>{{shortAddress block.hash}}</td>
+            </tr>
+            <tr>
+                <td>Parent hash</td>
+                <td>{{shortAddress block.parentHash}}</td>
+            </tr>
+            <tr>
+                <td>Miner</td>
+                <td>{{shortAddress block.miner}}</td>
+            </tr>
+            <tr>
+                <td>Size</td>
+                <td>{{block.size}}</td>
+            </tr>
+            <tr>
+                <td>Extra data</td>
+                <td>{{block.extraData}}</td>
+            </tr>
+            <tr>
+                <td>Gas limit</td>
+                <td>{{block.gasLimit}}</td>
+            </tr>
+            <tr>
+                <td>Gas used</td>
+                <td>{{block.gasUsed}}</td>
+            </tr>
+            <tr>
+                <td>Timestamp</td>
+                <td>{{block.timestamp}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h4>Included transactions</h4>
+        <ul style="overflow: hidden;margin: 0;padding: 0;list-style: none;">
+            {{#each block.transactions}}
+                <li style="display: block;overflow: hidden;margin: 5px 0;">{{>address hash=this short=true}}</li>
+            {{else}}
+                <li>None</li>
+            {{/each}}
+        </ul>
+
+    </div>
+
+</template>
