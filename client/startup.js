@@ -12,7 +12,7 @@ Meteor.startup(function(){
         }
     });
 
-    web3.eth.defaultRegistry = securityRegistry;
+    web3.eth.defaultRegistry = securityRegistry.address;
 
 });
 
