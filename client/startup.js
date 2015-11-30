@@ -12,6 +12,8 @@ Meteor.startup(function(){
         }
     });
 
+    web3.eth.defaultRegistry = securityRegistry;
+
 });
 
 Tracker.autorun(function () {
@@ -19,6 +21,8 @@ Tracker.autorun(function () {
     Session.set('blocks:latest', getLatestBlock());
     Session.setDefault('accounts:selected:address', web3.eth.defaultAccount);
     Session.set('accounts', getAccounts());
+    Session.setDefault('registry:selected:address', web3.eth.defaultRegistry);
+    Session.set('registry:selected', getRegistry());
 });
 
 /**
@@ -61,5 +65,41 @@ function getAccounts(){
     });
 
     return accounts;
+
+}
+
+/**
+ * Returns an array of existing securities
+ * @returns {Array} Registry of securities.
+ */
+function getRegistry(){
+
+    var registry = securityRegistryContract.at(Session.get('registry:selected:address'));
+
+    var securities = [];
+
+    if (typeof Session.get('registry:selected:address') == 'undefined') return securities;
+
+    var i = 0;
+
+    while (true){
+        var securityAddress = registry.registry(i);
+        if (securityAddress == 0) break;
+        var security = securityContract.at(securityAddress);
+
+        var issuer = Accounts.findOne({
+                address: security.issuer()
+            }) || {};
+
+        issuer.address = security.issuer();
+
+        securities.push({
+            address: security.address,
+            issuer: issuer
+        });
+        i++;
+    }
+
+    return securities;
 
 }

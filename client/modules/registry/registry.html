@@ -1,0 +1,36 @@
+<template name="registry">
+
+    <h3>Registry</h3>
+
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <th>Security</th>
+            <th>Issuer</th>
+        </tr>
+        {{#each selectedRegistry}}
+            <tr>
+                <td>
+                    {{>address hash=address short=true}}
+                </td>
+                <td>
+                    {{>address hash=issuer.address name=issuer.name short=true}}
+                </td>
+            </tr>
+        {{else}}
+            No securities
+        {{/each}}
+        </tbody>
+    </table>
+
+    <form class="form-horizontal" id="create-new-security">
+        <div class="input-group">
+            <input type="text" class="form-control" name="quantity" placeholder="Number of shares">
+            <span class="input-group-btn"><button type="submit" class="btn btn-default">Issue new security</button></span>
+        </div>
+        {{#if error}}
+            <div class="alert alert-danger" role="alert" style="margin-top:10px;">{{error}}</div>
+        {{/if}}
+    </form>
+
+</template>
