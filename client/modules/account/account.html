@@ -2,11 +2,15 @@
     <div class="row">
         <div class="col-md-6">
             <h3>Account</h3>
-            <div class="input-group" style="width:100%;margin-bottom:40px;">
+            <div class="input-group" style="width:100%;margin-bottom:20px;">
                 <span class="input-group-addon" style="padding:4px;width:32px;">
                     <img src="{{identicon address}}" class="img-responsive">
                 </span>
                 <input type="text" class="form-control" id="account-address-full" name="account-address-full" value="{{address}}" disabled>
+            </div>
+            <div style="overflow: hidden;">
+                <span style="display: block;float: left;margin-right: 10px;">Balance:</span>
+                {{getBalance address 'ether'}}
             </div>
             <h3>Profile</h3>
             <div class="alert alert-info" role="alert">

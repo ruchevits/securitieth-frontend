@@ -1,3 +1,11 @@
+Template.account.helpers({
+    getBalance: function(address, currency){
+        return web3.fromWei(
+            web3.eth.getBalance(address), currency
+        ).toString().concat(' ', currency);
+    }
+});
+
 Template.account.events({
     'submit #edit-account-info': function(e, template){
 
