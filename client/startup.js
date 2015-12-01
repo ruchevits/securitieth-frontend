@@ -14,15 +14,14 @@ Meteor.startup(function(){
 
     web3.eth.defaultRegistry = securityRegistry.address;
 
-});
-
-Tracker.autorun(function () {
-    Session.set('blocks:latest:number', web3.eth.blockNumber);
-    Session.set('blocks:latest', getLatestBlock());
-    Session.setDefault('accounts:selected:address', web3.eth.defaultAccount);
-    Session.set('accounts', getAccounts());
-    Session.setDefault('registry:selected:address', web3.eth.defaultRegistry);
-    Session.set('registry:selected', getRegistry());
+    Tracker.autorun(function () {
+        Session.set('blocks:latest:number', web3.eth.blockNumber);
+        Session.set('blocks:latest', getLatestBlock());
+        Session.setDefault('accounts:selected:address', web3.eth.defaultAccount);
+        Session.set('accounts', getAccounts());
+        Session.setDefault('registry:selected:address', web3.eth.defaultRegistry);
+        Session.set('registry:selected', getRegistry());
+    });
 });
 
 /**
