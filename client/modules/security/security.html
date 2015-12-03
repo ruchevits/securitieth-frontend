@@ -9,7 +9,7 @@
                 </span>
                 <input type="text" class="form-control" id="security-address-full" name="security-address-full" value="{{address}}" disabled>
             </div>
-            <div style="overflow: hidden;">
+            <div style="overflow: hidden;margin-bottom:20px;">
                 <span style="display: block;float: left;margin-right: 10px;">Issued by:</span>
                 <a href="{{pathFor route='account' address=issuer.address}}">
                     {{>address hash=issuer.address name=issuer.name short=true}}
@@ -17,7 +17,34 @@
             </div>
         </div>
         <div class="col-md-6">
-            {{> addCorporateAction security=address}}
+
+            <h3>Participation</h3>
+            {{#if balance address}}
+                <div class="alert alert-info" role="alert">
+                    You owe <strong>{{balance address}}</strong> shares in the current security.
+                </div>
+            {{else}}
+                <div class="alert alert-info" role="alert">
+                    You don't owe any shares in the current security.<br>
+                    Currently the only way to obtain some is directly from the issuer.
+                </div>
+            {{/if}}
+
+            {{#if balance address}}
+                <h3>Corporate actions</h3>
+                {{#each actions}}
+                    {{address}}
+                {{else}}
+                    <div class="alert alert-info" role="alert">
+                        There are no any actions added to the current security yet.
+                    </div>
+                {{/each}}
+            {{else}}
+            {{/if}}
+
+            {{#if isIssuer address}}
+                {{> addCorporateAction security=address}}
+            {{/if}}
         </div>
     </div>
 

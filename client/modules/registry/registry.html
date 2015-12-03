@@ -2,30 +2,33 @@
 
     <h3>Registry</h3>
 
-    {{#each selectedRegistry}}
-    <table class="table table-bordered">
-        <tbody>
-        <tr>
-            <th>Security</th>
-            <th>Issuer</th>
-        </tr>
+    {{#if selectedRegistry}}
+        <table class="table table-bordered">
+            <tbody>
             <tr>
-                <td>
-                    <a href="{{pathFor route='security' address=address}}">
-                        {{>address hash=address short=true}}
-                    </a>
-                </td>
-                <td>
-                    {{>address hash=issuer.address name=issuer.name short=true}}
-                </td>
+                <th>Security</th>
+                <th>Issuer</th>
             </tr>
-        </tbody>
-    </table>
+
+            {{#each selectedRegistry}}
+                <tr>
+                    <td>
+                        <a href="{{pathFor route='security' address=address}}">
+                            {{>address hash=address short=true}}
+                        </a>
+                    </td>
+                    <td>
+                        {{>address hash=issuer.address name=issuer.name short=true}}
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
     {{else}}
         <div class="alert alert-info" role="alert">
-            There ary no any securities in registry yet
+            There are no any securities in registry yet.
         </div>
-    {{/each}}
+    {{/if}}
 
     <form class="form-horizontal" id="create-new-security">
         <div class="input-group">
