@@ -1,5 +1,6 @@
 contract corpAct {
     function execute(address sender, uint amount, uint extraData){}
+    string public name;
 }
 
 contract securityRegistry {
@@ -27,9 +28,9 @@ contract security {
 	}
 
 	// Issuer can add a corporate action contract
-	function addCorporateAction(address contr){
-	    //if (issuer != msg.sender) return;
-	    cAContracts[currentState] == contr;
+	function addCorporateAction(corpAct contr){
+	    if (issuer != msg.sender) return;
+	    cAContracts[currentState] = contr;
 	    currentState++;
 	}
 

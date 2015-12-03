@@ -4,25 +4,27 @@
 
     <form class="form-horizontal" id="add-corporate-action">
 
-        <select name="type" style="width: 100%;margin-bottom:20px;">
+        <select name="name" style="width: 100%;margin-bottom:20px;">
             <option value=""></option>
+            <option value="spin-off">Spin off</option>
             <option value="coupon">Coupon</option>
+            <option value="dividend">Dividend</option>
+            <option value="redemption">Redemption</option>
+            <option value="proxy-vote">Proxy vote</option>
+            <option value="stock-split">Stock split</option>
         </select>
 
-        {{#each notifications}}
-            <div class="alert alert-{{this.type}}" role="alert">
-                {{this.text}}
-            </div>
-        {{/each}}
-
-        {{#if formTemplate}}
-            {{> Template.dynamic template=formTemplate}}
-            <input type="hidden" name="parent" value="{{security}}">
-            <input type="hidden" name="state" value="{{currentState security}}">
+        {{#if addCorporateActionForm}}
+            {{> Template.dynamic template=addCorporateActionForm}}
+            <input type="hidden" name="parent" value="{{security.address}}">
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-8">
                     <button type="submit" class="btn btn-default">Add</button>
                 </div>
+            </div>
+        {{else}}
+            <div class="alert alert-info" role="alert">
+                Choose corporate action to add to the security.
             </div>
         {{/if}}
 

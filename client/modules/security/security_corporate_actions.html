@@ -1,0 +1,16 @@
+<template name="securityCorporateActions">
+
+    <h3>Corporate actions</h3>
+    {{#if corporateActions}}
+        <div class="panel-group">
+            {{#each corporateActions}}
+                {{> corporateAction}}
+            {{/each}}
+        </div>
+    {{else}}
+        <div class="alert alert-info" role="alert">
+            There are no any actions added to the current security yet.
+        </div>
+    {{/if}}
+
+</template>

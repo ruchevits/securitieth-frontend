@@ -14,6 +14,8 @@ Meteor.startup(function(){
 
     web3.eth.defaultRegistry = securityRegistry.address;
 
+    Event = new EventEmitter();
+
     Tracker.autorun(function () {
         Session.set('blocks:latest:number', web3.eth.blockNumber);
         Session.set('blocks:latest', getLatestBlock());

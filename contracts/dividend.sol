@@ -1,5 +1,6 @@
 contract corpAct {
     function execute(address sender, uint amount, uint extraData){}
+    string public name;
 }
 
 contract security {
@@ -8,7 +9,7 @@ contract security {
     function admin(uint corpAct, address account, int amount, uint state){}
 
     function security(uint quant, address registry){}
-    function addCorporateAction(address contr){}
+    function addCorporateAction(corpAct contr){}
     function sendCoin(address recipient, uint amount, uint state) returns(bool successful){}
     function runCA(uint amount, uint state, uint extra){}
 
@@ -26,6 +27,7 @@ contract dividend is corpAct {
         parentSecurity = parent;
         dividendRate = rate;
         corpAct = ca;
+        name = 'dividend';
     }
 
     address public parentSecurity;

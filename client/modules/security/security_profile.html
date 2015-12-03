@@ -1,0 +1,17 @@
+<template name="securityProfile">
+
+    <h3>Security</h3>
+    <div class="input-group" style="width:100%;margin-bottom:20px;">
+        <span class="input-group-addon" style="padding:4px;width:32px;">
+            <img src="{{identicon address}}" class="img-responsive">
+        </span>
+        <input type="text" class="form-control" id="security-address-full" name="security-address-full" value="{{address}}" disabled>
+    </div>
+    <div style="overflow: hidden;margin-bottom:20px;">
+        <span style="display: block;float: left;margin-right: 10px;">Issued by:</span>
+        <a href="{{pathFor route='account' address=issuer.address}}">
+            {{>address hash=issuer.address name=issuer.name short=true}}
+        </a>
+    </div>
+
+</template>
