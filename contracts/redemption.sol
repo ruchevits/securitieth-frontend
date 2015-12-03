@@ -13,8 +13,8 @@ contract security {
     function runCA(uint amount, uint state, uint extra){}
 
     address public issuer;
-    uint currentState;
-    mapping(uint => corpAct) cAContracts;
+    uint public currentState;
+    mapping(uint => corpAct) public cAContracts;
     mapping(address =>mapping(uint=>uint)) public balances;
 
 }

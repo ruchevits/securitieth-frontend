@@ -28,7 +28,7 @@ contract security {
 
 	// Issuer can add a corporate action contract
 	function addCorporateAction(address contr){
-	    if (issuer != msg.sender) return;
+	    //if (issuer != msg.sender) return;
 	    cAContracts[currentState] == contr;
 	    currentState++;
 	}
@@ -42,8 +42,8 @@ contract security {
 	}
 
 	address public issuer;
-	uint currentState;
-	mapping(uint => corpAct) cAContracts;
+	uint public currentState;
+	mapping(uint => corpAct) public cAContracts;
 	mapping(address =>mapping(uint=>uint)) public balances;
 
 }
