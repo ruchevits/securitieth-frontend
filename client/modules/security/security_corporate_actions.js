@@ -41,7 +41,7 @@ function getCorporateActions(securityAddress){
         actions.push({
             state: i,
             name: corpAct.name(),
-            address: corpAct.address,
+            address: corpAct.address
         });
         i++;
     }

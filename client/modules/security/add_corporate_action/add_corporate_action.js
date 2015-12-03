@@ -200,6 +200,7 @@ function bindCorporateAction(corpAct, security){
             console.log(err.toString());
         }
         Event.emit('corporate-action:created', {
+            state: corpAct.corpAct().toString(),
             name: corpAct.name(),
             address: corpAct.address
         });
