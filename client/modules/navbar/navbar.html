@@ -12,28 +12,30 @@
                 <a class="navbar-brand" href="{{pathFor route='home'}}">Securities</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-main">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown" id="navbar-account">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <div class="identicon-container">
-                                <img src="{{identicon accounts.[0].address}}" class="img-responsive">
-                            </div>
+                {{#if accounts}}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown" id="navbar-account">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <div class="identicon-container">
+                                    <img src="{{identicon accounts.[0].address}}" class="img-responsive">
+                                </div>
                             <span class="account-name">
                                 <strong>{{userName accounts.[0].name}}</strong><br>
                                 <small>{{shortAddress accounts.[0].address}}</small>
                             </span>
-                        </a>
-                        <ul class="dropdown-menu" id="navbar-account-menu">
-                            {{#each $mapped accounts}}
-                                {{#if $first}}
-                                    {{> navbarPrimaryAccount }}
-                                {{else}}
-                                    {{> navbarSecondaryAccount }}
-                                {{/if}}
-                            {{/each}}
-                        </ul>
-                    </li>
-                </ul>
+                            </a>
+                            <ul class="dropdown-menu" id="navbar-account-menu">
+                                {{#each $mapped accounts}}
+                                    {{#if $first}}
+                                        {{> navbarPrimaryAccount }}
+                                    {{else}}
+                                        {{> navbarSecondaryAccount }}
+                                    {{/if}}
+                                {{/each}}
+                            </ul>
+                        </li>
+                    </ul>
+                {{/if}}
             </div>
         </div>
     </nav>
