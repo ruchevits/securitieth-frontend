@@ -4,7 +4,7 @@ development:
   rpc_whitelist: "*"
   minerthreads: 1
   genesis_block: config/genesis.json
-  datadir: /tmp/embark
+  datadir: /tmp/ethereum/securitieth
   mine_when_needed: true
   gas_limit: 500000
   gas_price: 10000000000000
