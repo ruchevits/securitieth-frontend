@@ -14,3 +14,5 @@
 ## Current state
 
 Not all contracts are implemented yet as I am still reading on financial instruments and figuring out how they are supposed to work.
+
+Some screenshots are available here: https://github.com/ruchevits/securitieth-frontend/wiki/Screenshots
